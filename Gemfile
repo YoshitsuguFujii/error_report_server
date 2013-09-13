@@ -23,11 +23,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'ltsv'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
 
 gem 'mysql2'
 
@@ -49,6 +50,7 @@ group :development, :test do
   gem 'awesome_print'
 
   gem 'spring'
+  gem 'colorize_unpermitted_parameters'
 end
 
 group :production do

@@ -1,4 +1,8 @@
 ErrorReportServer::Application.routes.draw do
+  namespace :api do
+    resources :logs, only: [:index, :create]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +43,7 @@ ErrorReportServer::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
