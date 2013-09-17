@@ -66,3 +66,15 @@ gem 'compass-colors'
 gem 'kaminari'
 gem 'simple_form'
 gem 'country_select'
+
+
+group :development do
+  gem 'bootstrap-sass'
+  gem 'bootswatch-rails'
+  gem 'twitter-bootstrap-rails'
+end
+
+
+group :assets do
+  gem 'therubyracer', :platforms => :ruby
+end
