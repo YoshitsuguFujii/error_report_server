@@ -1,0 +1,12 @@
+- @logs.each do |log|
+  %div
+    %span(style="border:1px solid blue; padding: 3px;")
+      = "ID:" + log.id.to_s
+    %span(style="border:1px solid blue; padding: 3px;")
+      = "作成日時: #{log.created_at.to_s}"
+    %span(style="border:1px solid blue; padding: 3px;")
+      = "更新日時: #{log.updated_at.to_s}"
+    - LTSV.parse(log.ltsv).first.each do |key,value|
+      %span(style="border:1px solid red; padding: 3px;")
+        = key.to_s + ": " + value
+

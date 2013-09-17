@@ -1,8 +1,6 @@
 class Api::LogsController < ApiController
   def index
     @logs = Log.all
-
-    render json: @logs
   end
 
   def create
