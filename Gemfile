@@ -31,14 +31,14 @@ group :doc do
 end
 
 gem 'mysql2'
+gem 'devise'
 
 group :development do
-  gem 'puma'
-
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'guard-livereload'
 
+  gem 'erb2haml'
 end
 
 group :development, :test do
@@ -57,3 +57,12 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
 end
+
+
+gem 'haml-rails'
+gem 'compass_twitter_bootstrap'
+gem 'compass-rails', github: "milgner/compass-rails", branch: "rails4"
+gem 'compass-colors'
+gem 'kaminari'
+gem 'simple_form'
+gem 'country_select'

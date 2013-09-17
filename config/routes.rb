@@ -1,7 +1,15 @@
 ErrorReportServer::Application.routes.draw do
+
   namespace :api do
     resources :logs, only: [:index, :create]
   end
+
+  devise_for :users
+  namespace :admin do
+  end
+
+  # root_path
+  root to: "admin/top#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

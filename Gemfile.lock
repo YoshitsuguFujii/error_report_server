@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/milgner/compass-rails.git
+  revision: c86e7fd9c2605c80816a2f64a3fb8b7c3a09e494
+  branch: rails4
+  specs:
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,6 +36,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.10)
     awesome_print (1.1.0)
+    bcrypt-ruby (3.1.2)
     better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -37,6 +46,7 @@ GEM
     byebug (1.8.2)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
+    chunky_png (1.2.8)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -48,17 +58,35 @@ GEM
     colorize_unpermitted_parameters (0.0.2)
       term-ansicolor
     columnize (0.3.6)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-colors (0.9.0)
+      compass (>= 0.8.7)
+    compass_twitter_bootstrap (2.3.1)
+      compass
+    country_select (1.2.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
+    devise (3.1.0)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
+    erb2haml (0.1.5)
+      html2haml
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.9.0)
     formatador (0.2.4)
+    fssm (0.2.10)
     guard (1.8.2)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -69,11 +97,24 @@ GEM
       em-websocket (>= 0.5.0)
       guard (>= 1.8.0)
       multi_json (~> 1.7)
+    haml (4.0.3)
+      tilt
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
     hike (1.2.3)
     hirb (0.7.1)
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
+    hpricot (0.8.6)
+    html2haml (1.0.1)
+      erubis (~> 2.7.0)
+      haml (>= 4.0.0.rc.1)
+      hpricot (~> 0.8.6)
+      ruby_parser (~> 3.1.1)
     http_parser.rb (0.5.3)
     i18n (0.6.4)
     jbuilder (1.4.2)
@@ -83,6 +124,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     listen (1.3.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -97,6 +141,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.7)
     mysql2 (0.3.13)
+    orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -108,8 +153,6 @@ GEM
       pry (~> 0.9.12)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    puma (2.5.1)
-      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -139,6 +182,8 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    ruby_parser (3.1.3)
+      sexp_processor (~> 4.1)
     sass (3.2.9)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -147,6 +192,8 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    sexp_processor (4.3.0)
+    simple_form (1.4.1)
     slop (3.4.6)
     spring (0.0.10)
     sprockets (2.10.0)
@@ -175,6 +222,8 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicode-display_width (0.1.1)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -185,21 +234,29 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 4.0.0)
   colorize_unpermitted_parameters
+  compass-colors
+  compass-rails!
+  compass_twitter_bootstrap
+  country_select
+  devise
+  erb2haml
   guard-livereload
+  haml-rails
   hirb
   hirb-unicode
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   ltsv
   mysql2
   pg
   pry-byebug
   pry-rails
-  puma
   rails (= 4.0.0)
   rails_12factor
   sass-rails (~> 4.0.0)
   sdoc
+  simple_form
   spring
   turbolinks
   uglifier (>= 1.3.0)
