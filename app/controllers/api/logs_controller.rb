@@ -1,4 +1,6 @@
 class Api::LogsController < ApiController
+  before_action :set_log, only: [:show]
+
   def index
     @logs = Log.all
   end
@@ -15,6 +17,11 @@ class Api::LogsController < ApiController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_log
+      @log = Log.find(params[:id])
+    end
+
     def log_params
       params.require(:log).permit(:ltsv)
     end

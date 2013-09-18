@@ -1,7 +1,7 @@
 ErrorReportServer::Application.routes.draw do
 
   namespace :api do
-    resources :logs, only: [:index, :create]
+    resources :logs, only: [:index, :show, :create]
   end
 
   devise_for :users
