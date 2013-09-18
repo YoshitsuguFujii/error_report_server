@@ -23,8 +23,6 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'ltsv'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -68,11 +66,9 @@ gem 'simple_form'
 gem 'country_select'
 
 
-group :development do
-  gem 'bootstrap-sass'
-  gem 'bootswatch-rails'
-  gem 'twitter-bootstrap-rails'
-end
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+gem 'twitter-bootstrap-rails'
 
 
 group :assets do

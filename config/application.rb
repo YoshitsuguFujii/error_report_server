@@ -29,5 +29,19 @@ module ErrorReportServer
 
     # devise
     config.assets.initialize_on_precompile = false
+
+    # generatorの設定
+    config.generators do |g|
+      g.orm :active_record
+      g.template_engine :haml
+      #g.test_framework  :rspec, :fixture => true
+      #g.fixture_replacement :factory_girl, :dir => "spec/factories"
+    end
+
+    # load original validator(オリジナルのバリデーターがある場合のみ)
+    #config.autoload_paths += %W(#{config.root}/lib/validators)
+
+    # lib
+    config.autoload_paths += %W(#{config.root}/lib/util)
   end
 end

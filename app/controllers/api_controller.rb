@@ -6,6 +6,8 @@ class ApiController < ActionController::Base
   ##
   # エラーを全部引き受ける(個々のハンドリングは継承先でやるといいです)
   def system_error(ex)
+    puts(ex.message)
+    puts(ex.backtrace.join("\n"))
     logger.error(ex.message)
     logger.error(ex.backtrace.join("\n"))
     render json: ApiResponse.system_error , :status => 500
