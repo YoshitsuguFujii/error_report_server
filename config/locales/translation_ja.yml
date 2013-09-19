@@ -1,0 +1,58 @@
+ja:
+  pages:
+    common:
+      index: "一覧"
+      show: "詳細"
+      new: "新規"
+      edit: "編集"
+      confirm: "確認"
+      create: "作成"
+      update: "更新"
+      destroy: "削除"
+      register: "登録"
+      popup:
+        destroy: "削除します。よろしいですか？"
+
+    pagination:
+      prev: "前へ"
+      next: "次へ"
+
+  flash:
+    notice:
+      create: "登録処理が完了しました"
+      update: "更新処理が完了しました"
+      destroy: "削除処理が完了しました"
+      public:
+        show: "表示にしました"
+        hide: "非表示にしました"
+    error:
+      unknown: "エラーが発生しました。"
+      file_maxsize: "ファイルサイズが5Mbyteを超えたため失敗しました"
+      file_maxsize_30k: "ファイルサイズが30Kbyteを超えたため失敗しました"
+      file_error: "ファイルサイズが5Mbyteを超えた、もしくはファイルはJPEG,GIFまたはPNGファイルでなければなりません"
+
+  activerecord:
+    models:
+      user: "ユーザ"
+      log: "ログ"
+
+    attributes:
+      user:
+        email:
+        remember_me: ログインID・パスワードを記録する
+
+      shop:
+        tel: "tel"
+        fax: "fax"
+        email: "email"
+        genre_id: "業種"
+
+        plans:
+          name: "プラン"
+
+  activemodel:
+    attributes:
+      create_user_form:
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"

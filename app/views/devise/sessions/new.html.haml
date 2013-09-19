@@ -1,16 +1,34 @@
-%h2 Sign in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, :autofocus => true
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  - if devise_mapping.rememberable?
-    %div
-      = f.check_box :remember_me
-      = f.label :remember_me
-  %div= f.submit "Sign in"
-= render "devise/shared/links"
+.container-fluid
+  .row-fluid
+    .span6.offset3.login
+      .navbar
+        .navbar-inner
+          .container-fluid
+            %a.brand(href="#") Error Report Server
+
+        = bootstrap_flash
+
+        %h3 ログイン
+        = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f|
+          .form-inputs
+            .control-group.email.optional
+              = f.label :email, :for => "email", :class => "email optional control-label"
+              .controls
+                = f.email_field :email , :required => false, :autofocus => true, :class => "string email optional input-medium", :size => 50, :type => "email", :value => ""
+
+            .control-group.password.optional
+              = f.label :password, :for => "password", :class => "password optional control-label"
+              .controls
+                = f.password_field :password, :required => false, :class => "password optional input-medium", :size => 50, :type => "password"
+
+            - if devise_mapping.rememberable?
+              .control-group.password.optional.remember_me_checkbox
+                .controls
+                  = f.check_box :remember_me
+                  = f.label :remember_me, class: "checkbox inline"
+
+          .form-actions
+            = f.submit "ログイン", :class => 'btn btn-primary'
+
+      %footer
+        =#%p &copy; Company 2013

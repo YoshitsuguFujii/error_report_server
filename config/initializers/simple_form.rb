@@ -2,7 +2,7 @@
 SimpleForm.setup do |config|
   # Components used by the form builder to generate a complete input. You can remove
   # any of them, change the order, or even add your own components to the stack.
-  # config.components = [ :placeholder, :label_input, :hint, :error ]
+  config.components = [ :placeholder, :label_input, :hint, :error ]
 
   # Default tag used on hints.
   # config.hint_tag = :span
@@ -29,10 +29,11 @@ SimpleForm.setup do |config|
   # config.error_notification_id = nil
 
   # You can wrap all inputs in a pre-defined tag.
-  # config.wrapper_tag = :div
+  # config.wrapper_tag = div
 
   # CSS class to add to all wrapper tags.
   # config.wrapper_class = :input
+  config.wrapper_class = "input controls control-group"
 
   # CSS class to add to the wrapper if the field has errors.
   # config.wrapper_error_class = :field_with_errors
@@ -51,17 +52,19 @@ SimpleForm.setup do |config|
 
   # How the label text should be generated altogether with the required text.
   # config.label_text = lambda { |label, required| "#{required} #{label}" }
+  config.label_text = lambda { |label, required| "#{label} #{required}" }
 
   # You can define the class to use on all labels. Default is nil.
-  # config.label_class = nil
+  config.label_class = 'control-label'
 
   # You can define the class to use on all forms. Default is simple_form.
   # config.form_class = :simple_form
+  config.form_class = 'simple_form form-horizontal'
 
   # Whether attributes are required by default (or not). Default is true.
   # config.required_by_default = true
 
-  # Tell browsers whether to use default HTML5 validations (novalidate option).
+  # Tell browsers whether to use defau inlinelt HTML5 validations (novalidate option).
   # Default is enabled.
   # config.browser_validations = true
 
@@ -91,3 +94,5 @@ SimpleForm.setup do |config|
   # When false, do not use translations for labels, hints or placeholders.
   # config.translate = true
 end
+
+

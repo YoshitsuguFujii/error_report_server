@@ -1,0 +1,39 @@
+
+  simple_form:
+    "yes": 'はい'
+    "no": 'いいえ'
+    required:
+      text: '必須'
+      mark: '[必須]'
+    button:
+      confirm: "確認"
+      back_to_list: "一覧に戻る"
+      create: "登録"
+      update: "更新"
+      modifie: "修正"
+      edit: "編集"
+      destroy: "削除"
+      password_edit: "パスワード変更"
+      back: "戻る"
+      search: "検索"
+      csv_output: "CSV出力"
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "入力内容に誤りがあります"
+    #  default_message: "Please review the problems below:"
+    # Labels and hints examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+
