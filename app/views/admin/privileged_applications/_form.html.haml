@@ -1,0 +1,5 @@
+= simple_form_for [:admin, @privileged_application], html: { class: '' } do |f|
+  = f.input :name, required:  true
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('cancel', default: t("helpers.links.cancel")), admin_privileged_applications_path, class: 'btn'

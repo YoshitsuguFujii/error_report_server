@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917022420) do
+ActiveRecord::Schema.define(version: 20130920025909) do
 
   create_table "logs", force: true do |t|
     t.text     "ltsv"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "privileged_applications", force: true do |t|
+    t.string   "name",                  null: false
+    t.string   "key",        limit: 64, null: false
+    t.string   "secret",     limit: 64, null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "privileged_applications", ["key"], name: "index_privileged_applications_on_key", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

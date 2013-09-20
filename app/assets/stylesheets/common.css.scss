@@ -1,3 +1,16 @@
+
+
+//################################
+//# mixin
+//################################
+@mixin danger-font-color{
+  color: #eda776;
+}
+
+//################################
+//# stlyle指定
+//################################
+
 html,body{
   height: 100%;
 }
@@ -12,5 +25,11 @@ div#user_nav{
       padding-bottom: 14px;
       text-shadow: none;
       display: block;
+  }
+}
+
+label.required{
+  abbr{
+    @include danger-font-color;
   }
 }

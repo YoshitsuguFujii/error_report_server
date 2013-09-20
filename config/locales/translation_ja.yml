@@ -41,6 +41,9 @@ ja:
         email:
         remember_me: ログインID・パスワードを記録する
 
+      privileged_application:
+        name: 名称
+
       shop:
         tel: "tel"
         fax: "fax"

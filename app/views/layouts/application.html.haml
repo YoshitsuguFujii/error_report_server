@@ -29,7 +29,7 @@
           = link_to 'Error Report Server', root_path , class: "brand"
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
+              %li= link_to "アプリ登録", admin_privileged_applications_path
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
 
@@ -37,17 +37,25 @@
 
     .container-fluid
 
+      - if @sidebar
+        .row-fluid
+          .span3
+            .well.sidebar-nav
+              %ul.nav.nav-list
+                %li.nav-header Sidebar
+                %li= link_to "Link 1", "/path1"
+                %li= link_to "Link 2", "/path2"
+                %li= link_to "Link 3", "/path3"
+
+          .span9
+            = bootstrap_flash
+            = yield
+
       .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-        .span9
+        .span11
           = bootstrap_flash
           = yield
 
       %footer
-        %p &copy; Company 2013
+        - if false
+          %p &copy; Company 2013
