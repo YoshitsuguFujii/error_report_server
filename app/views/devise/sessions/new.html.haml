@@ -4,8 +4,9 @@
       .navbar
         .navbar-inner
           .container-fluid
-            %a.brand(href="#") Error Report Server
+            = link_to 'Error Report Server', new_user_session_path , class: "brand"
 
+        %div.height_10
         = bootstrap_flash
 
         %h3 ログイン

@@ -26,12 +26,14 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") ErrorReportServer
+          = link_to 'Error Report Server', root_path , class: "brand"
           .container.nav-collapse
             %ul.nav
               %li= link_to "Link 1", "/path1"
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
+
+            = render 'layouts/parts/user_nav'
 
     .container-fluid
 
@@ -46,6 +48,6 @@
         .span9
           = bootstrap_flash
           = yield
-    
+
       %footer
         %p &copy; Company 2013

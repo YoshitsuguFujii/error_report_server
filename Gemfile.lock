@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/mbleigh/seed-fu.git
+  revision: f89ea306472c500ec7911c7be111a4aad9c1bc78
+  specs:
+    seed-fu (2.2.0)
+      activerecord (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+
+GIT
   remote: git://github.com/milgner/compass-rails.git
   revision: c86e7fd9c2605c80816a2f64a3fb8b7c3a09e494
   branch: rails4
@@ -157,6 +165,8 @@ GEM
       pry (~> 0.9.12)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -266,10 +276,12 @@ DEPENDENCIES
   pg
   pry-byebug
   pry-rails
+  quiet_assets
   rails (= 4.0.0)
   rails_12factor
   sass-rails (~> 4.0.0)
   sdoc
+  seed-fu!
   simple_form
   spring
   therubyracer

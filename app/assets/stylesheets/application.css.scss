@@ -16,10 +16,13 @@
 // Example using journal bootswatch
 //
 // First import journal variables
-@import "bootswatch/simplex/variables";
+//@import "bootswatch/simplex/variables";
+@import "bootswatch/amelia/variables";
+//@import "bootswatch/cerulean/variables";
+//@import "bootswatch/journal/variables";
 
 // Then bootstrap itself
-//@import "bootstrap";
+@import "bootstrap";
 
 // Bootstrap body padding for fixed navbar
 body { padding-top: 60px; }
@@ -28,7 +31,9 @@ body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
 // And finally bootswatch style itself
-@import "bootswatch/simplex/bootswatch";
+//@import "bootswatch/simplex/bootswatch";
+@import "bootswatch/amelia/bootswatch";
+//@import "bootswatch/journal/bootswatch";
 
 // Whatever application styles you have go last
 @import "base";

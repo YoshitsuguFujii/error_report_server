@@ -37,6 +37,7 @@ group :development do
   gem 'guard-livereload'
 
   gem 'erb2haml'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
@@ -70,6 +71,7 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'twitter-bootstrap-rails'
 
+gem 'seed-fu', github: 'mbleigh/seed-fu'
 
 group :assets do
   gem 'therubyracer', :platforms => :ruby
