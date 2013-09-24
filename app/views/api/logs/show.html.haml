@@ -1,5 +1,5 @@
 %table(border=1)
-  - JSON.parse(@log.log).each do |key,value|
+  - Ltsv.parse(@log.log).each do |key,value|
     %tr
       %th
         = key.to_s

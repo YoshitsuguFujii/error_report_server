@@ -6,24 +6,28 @@ class Api::LogsController < ApiController
   end
 
   def create
-    #logs = Log.new(log: params[:log])
-    #logs = JSON.parse(params[:log])
-
     @logs = []
-    logs = JSON.parse("[ \"key1:value\\tkey2:value\", \"key1:value\\tkey2:value\" ]")
+
+    logs = Log.new(log: params[:log])
+    logs = JSON.parse(params[:log])
+    #logs = JSON.parse("[ \"key1:value1\\tkey2:value2\", \"key3:value3\\tkey4:value4\" ]")
 
     Array.wrap(logs).each do |log|
       @logs << Log.new(log: log)
     end
 
-    begin
-      Log.import(@logs)
-      render json: ApiResponse.sucess, :status => 201
-    rescue => ex
-      logger.error(ex.message)
-      logger.error(ex.backtrace.join("\n"))
-      render json: ApiResponse.system_error(ex.message), :status => 500
-    end
+    Log.import(@logs)
+    render json: ApiResponse.sucess, :status => 201
+  rescue JSON::ParserError => ex
+    logger.error("JSON::ParserError")
+    logger.error(ex.message)
+    logger.error(ex.backtrace.join("\n"))
+    render json: ApiResponse.system_error(ex.message), :status => 500
+  rescue => ex
+    logger.error("SystemError")
+    logger.error(ex.message)
+    logger.error(ex.backtrace.join("\n"))
+    render json: ApiResponse.system_error(ex.message), :status => 500
   end
 
   private
