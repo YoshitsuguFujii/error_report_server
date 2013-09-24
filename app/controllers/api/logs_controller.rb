@@ -6,12 +6,22 @@ class Api::LogsController < ApiController
   end
 
   def create
-    @log = Log.new(ltsv: params[:log])
+    #logs = Log.new(log: params[:log])
+    #logs = JSON.parse(params[:log])
+
+    @logs = []
+    logs = JSON.parse("[ \"key1:value\\tkey2:value\", \"key1:value\\tkey2:value\" ]")
+
+    Array.wrap(logs).each do |log|
+      @logs << Log.new(log: log)
+    end
 
     begin
-      @log.save!
+      Log.import(@logs)
       render json: ApiResponse.sucess, :status => 201
     rescue => ex
+      logger.error(ex.message)
+      logger.error(ex.backtrace.join("\n"))
       render json: ApiResponse.system_error(ex.message), :status => 500
     end
   end
@@ -23,6 +33,6 @@ class Api::LogsController < ApiController
     end
 
     def log_params
-      params.require(:log).permit(:ltsv)
+      params.require(:log).permit(:log)
     end
 end

@@ -7,6 +7,6 @@
     %span
       = "更新日時: #{log.updated_at.to_s}"
     - if false
-      - Ltsv.parse(log.ltsv).each do |key,value|
+      - JSON.parse(log.log).each do |key,value|
         %span(style="border:1px solid red; padding: 3px;")
           = key.to_s + ": " + value.to_s

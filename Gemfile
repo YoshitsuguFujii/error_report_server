@@ -71,6 +71,8 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'twitter-bootstrap-rails'
 
+gem 'activerecord-import'
+
 gem 'seed-fu', github: 'mbleigh/seed-fu'
 
 group :assets do

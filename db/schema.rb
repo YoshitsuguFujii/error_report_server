@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20130920025909) do
 
   create_table "logs", force: true do |t|
     t.integer  "privileged_application_id"
-    t.text     "ltsv"
+    t.text     "log"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
