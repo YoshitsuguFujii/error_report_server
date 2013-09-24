@@ -9,7 +9,7 @@
       %th= model_class.human_attribute_name(:created_at)
   %tbody
     - @logs.each do |log|
-      %tr
-        %td= link_to log.id, admin_log_path(log)
+      %tr(data-href= "#{admin_log_path(log)}")
+        %td= log.id
         %td= truncate(log.log, length: 30)
         %td=l log.created_at

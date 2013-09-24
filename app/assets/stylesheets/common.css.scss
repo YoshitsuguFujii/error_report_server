@@ -43,3 +43,9 @@ div.show-table table{
     }
   }
 }
+
+.table{
+  tbody tr.clickable:hover td {
+    cursor: pointer;
+  }
+}

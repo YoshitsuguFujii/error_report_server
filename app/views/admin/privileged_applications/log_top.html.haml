@@ -8,6 +8,6 @@
       %th= model_class.human_attribute_name(:name)
   %tbody
     - @privileged_applications.each do |privileged_application|
-      %tr
-        %td= link_to privileged_application.id, admin_privileged_application_logs_path(privileged_application)
-        %td= link_to privileged_application.name, admin_privileged_application_logs_path(privileged_application)
+      %tr(data-href= "#{admin_privileged_application_logs_path(privileged_application)}")
+        %td= privileged_application.id
+        %td= privileged_application.name

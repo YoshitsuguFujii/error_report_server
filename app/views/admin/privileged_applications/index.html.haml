@@ -12,8 +12,8 @@
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @privileged_applications.each do |privileged_application|
-      %tr
-        %td= link_to privileged_application.id, admin_privileged_application_path(privileged_application)
+      %tr(data-href= "#{admin_privileged_application_path(privileged_application)}")
+        %td= privileged_application.id
         %td= privileged_application.name
         %td= privileged_application.key
         %td= privileged_application.secret
