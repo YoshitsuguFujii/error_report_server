@@ -1,5 +1,10 @@
 class ApiController < ActionController::Base
+  class InvalidAccess < StandardError; end
+
+  before_action :authenticate_api!
   rescue_from Exception, with: :system_error
+  # アクセスで弾く辺りはカプセル化したい
+  rescue_from InvalidAccess, with: :auth_error
 
 #  before_action :api_authorize
 
@@ -13,18 +18,13 @@ class ApiController < ActionController::Base
     render json: ApiResponse.system_error , :status => 500
   end
 
-  def save_and_render(model)
-    method = defined?(current_user) && current_user.present? ? [:save, current_user] : [:save_without_operator]
-    if model.send(*method)
-      model.api_response = ApiResponse.sucess
-      render json: ApiResponse.sucess, :status => 201
-    else
-      if model.errors.any?
-        render json: ApiResponse.param_error(model.errors.full_messages), :status => 400
-      else
-        render json: ApiResponse.param_error("#{model.class.name} register failed"), :status => 400
-      end
-    end
+  # secret token不正
+  def auth_error(ex)
+    puts(ex.message)
+    puts(ex.backtrace.join("\n"))
+    logger.error(ex.message)
+    logger.error(ex.backtrace.join("\n"))
+    render json: ApiResponse.auth_failed , :status => 401
   end
 
   private
@@ -42,6 +42,17 @@ class ApiController < ActionController::Base
       if result == false
         render json: ApiResponse.auth_failed , :status => 401
       else
+      end
+    end
+
+    def authenticate_api!
+      api_key = request.env["HTTP_API_KEY"] || request.env["api_key"]
+      secret_token = request.env["HTTP_SECRET_TOKEN"] || request.env["secret_token"]
+
+      @app = PrivilegedApplication.find_by(key: api_key)
+
+      if @app.secret != secret_token
+        raise InvalidAccess, '不正なアクセスです'
       end
     end
   # end private
