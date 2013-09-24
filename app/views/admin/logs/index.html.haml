@@ -1,0 +1,15 @@
+- model_class = Log
+.page-header
+  %h1=t '.title', :default => model_class.model_name.to_s.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:ltsv)
+      %th= model_class.human_attribute_name(:created_at)
+  %tbody
+    - @logs.each do |log|
+      %tr
+        %td= link_to log.id, admin_log_path(log)
+        %td= truncate(log.ltsv, length: 30)
+        %td=l log.created_at

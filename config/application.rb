@@ -44,6 +44,7 @@ module ErrorReportServer
 
     # lib
     config.autoload_paths += %W(#{config.root}/lib/util)
+    config.autoload_paths += %W(#{config.root}/lib/helpers)
 
     # devise
     config.to_prepare do

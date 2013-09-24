@@ -31,7 +31,7 @@ class Admin::PrivilegedApplicationsController < ApplicationController
   def update
     @privileged_application = PrivilegedApplication.find(params[:id])
 
-    if @privileged_application.update_attributes(params[:privileged_application])
+    if @privileged_application.update(privileged_application_params)
       flash[:notice] = "アプリケーションの名前を変更しました。"
       redirect_to admin_privileged_applications_path
     else
@@ -43,6 +43,10 @@ class Admin::PrivilegedApplicationsController < ApplicationController
     @privileged_application = PrivilegedApplication.find(params[:id])
     @privileged_application.destroy
     redirect_to admin_privileged_applications_path
+  end
+
+  def log_top
+    @privileged_applications = PrivilegedApplication.all
   end
 
   private

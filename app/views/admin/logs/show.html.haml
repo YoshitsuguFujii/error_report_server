@@ -1,0 +1,27 @@
+- model_class = Log
+.page-header
+  %h2= @log.privileged_application.name
+
+.show-table
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th(colspan=2) 送信情報
+    %tbody
+      = simple_table_item_tag(@log, :id)
+      = simple_table_item_tag(@log, :created_at, @log.created_at.to_s(:db))
+
+
+%br
+.show-table
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th(colspan=2) 送信内容
+    %tbody
+      - Ltsv.parse(@log.ltsv).each do |key,value|
+        %tr
+          %th
+            = key.to_s
+          %td
+            = value.to_s

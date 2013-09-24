@@ -8,7 +8,6 @@
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:key)
       %th= model_class.human_attribute_name(:secret)
-      %th= model_class.human_attribute_name(:deleted_at)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -18,7 +17,6 @@
         %td= privileged_application.name
         %td= privileged_application.key
         %td= privileged_application.secret
-        %td= privileged_application.deleted_at
         %td=l privileged_application.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_privileged_application_path(privileged_application), :class => 'btn btn-mini'

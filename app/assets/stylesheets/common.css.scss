@@ -33,3 +33,13 @@ label.required{
     @include danger-font-color;
   }
 }
+
+div.show-table table{
+  thead{
+    tr{
+      th{
+//        background-color: #debb27;
+      }
+    }
+  }
+}

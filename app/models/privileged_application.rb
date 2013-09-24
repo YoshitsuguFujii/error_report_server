@@ -2,11 +2,12 @@
 require 'openssl'
 
 class PrivilegedApplication < ActiveRecord::Base
-  ## :nodoc:
+  # Association
+  has_many :logs
+
   # Validation
   validates :name, :presence => true, :uniqueness => true
 
-  ## :nodoc:
   # Callback Method
   before_create :generate_key, :generate_secret
 

@@ -6,7 +6,12 @@ ErrorReportServer::Application.routes.draw do
 
   devise_for :users
   namespace :admin do
-    resources :privileged_applications
+    resources :privileged_applications, shallow: true do
+      collection do
+        get :log_top
+      end
+      resources :logs, only: [:index, :show]
+    end
   end
 
   # root_path

@@ -33,8 +33,8 @@ ja:
 
   activerecord:
     models:
-      user: "ユーザ"
-      log: "ログ"
+      user: ユーザ
+      log: ログ
 
     attributes:
       user:
@@ -43,6 +43,9 @@ ja:
 
       privileged_application:
         name: 名称
+      log:
+        ltsv: 値
+        created_at: 登録日時
 
       shop:
         tel: "tel"
