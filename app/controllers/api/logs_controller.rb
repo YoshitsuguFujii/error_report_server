@@ -1,5 +1,6 @@
 class Api::LogsController < ApiController
   before_action :set_log, only: [:show]
+  skip_before_action :authenticate_api!, only: [:index, :show]
 
   def index
     @logs = Log.all
@@ -17,11 +18,12 @@ class Api::LogsController < ApiController
     end
 
     Array.wrap(logs).each do |log|
-      @logs << Log.new(privileged_application: @app, log: log)
+      @logs << Ltsv.parse(log).merge(privileged_application_id: @app.id, created_at: Time.now, updated_at: Time.now)
     end
 
     begin
-      Log.import(@logs)
+      # bulk insert
+      Log.collection.insert(@logs)
       render json: ApiResponse.sucess, :status => 201
     rescue => ex
       logger.error(ex.message)

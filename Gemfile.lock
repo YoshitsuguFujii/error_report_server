@@ -14,6 +14,16 @@ GIT
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
 
+GIT
+  remote: git://github.com/mongoid/mongoid.git
+  revision: c4229f0c213d2e5c35552c93e514cb6d97405df2
+  specs:
+    mongoid (4.0.0)
+      activemodel (~> 4.0.0)
+      moped (~> 2.0.beta)
+      origin (~> 1.0)
+      tzinfo (~> 0.3.37)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,6 +66,8 @@ GEM
       sass (~> 3.2)
     bootswatch-rails (0.5.0)
       railties (>= 3.1)
+    bson (2.0.0.rc2)
+    bson_ext (1.5.1)
     builder (3.1.4)
     byebug (1.8.2)
       columnize (~> 0.3.6)
@@ -153,8 +165,13 @@ GEM
     method_source (0.8.2)
     mime-types (1.23)
     minitest (4.7.5)
+    moped (2.0.0.beta)
+      bson (~> 2.0.0.rc2)
+      optionable (~> 0.1.1)
     multi_json (1.7.7)
     mysql2 (0.3.13)
+    optionable (0.1.1)
+    origin (1.1.0)
     orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
@@ -260,6 +277,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bootswatch-rails
+  bson_ext
   coffee-rails (~> 4.0.0)
   colorize_unpermitted_parameters
   compass-colors
@@ -275,6 +293,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
+  mongoid (~> 4)!
   mysql2
   pg
   pry-byebug

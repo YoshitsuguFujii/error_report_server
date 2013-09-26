@@ -11,5 +11,5 @@
     - @logs.each do |log|
       %tr(data-href= "#{admin_log_path(log)}")
         %td= log.id
-        %td= truncate(log.log, length: 30)
+        %td= truncate(log.log_str, length: 30)
         %td=l log.created_at

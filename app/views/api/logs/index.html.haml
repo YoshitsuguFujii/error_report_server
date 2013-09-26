@@ -3,9 +3,9 @@
     %span
       = link_to "ID:" + log.id.to_s, api_log_path(log)
     %span
-      = "作成日時: #{log.created_at.to_s}"
+      = "作成日時: #{log.created_at.to_s(:db)}"
     %span
-      = "更新日時: #{log.updated_at.to_s}"
+      = "更新日時: #{log.updated_at.to_s(:db)}"
     - if false
       - JSON.parse(log.log).each do |key,value|
         %span(style="border:1px solid red; padding: 3px;")

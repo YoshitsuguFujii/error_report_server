@@ -19,7 +19,7 @@
       %tr
         %th(colspan=2) 送信内容
     %tbody
-      - Ltsv.parse(@log.log).each do |key,value|
+      - @log.log.each do |key,value|
         %tr
           %th
             = key.to_s

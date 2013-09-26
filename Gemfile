@@ -78,3 +78,6 @@ gem 'seed-fu', github: 'mbleigh/seed-fu'
 group :assets do
   gem 'therubyracer', :platforms => :ruby
 end
+
+gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
+gem 'bson_ext'

@@ -3,13 +3,17 @@ require 'openssl'
 
 class PrivilegedApplication < ActiveRecord::Base
   # Association
-  has_many :logs
+  #has_many :logs
 
   # Validation
   validates :name, :presence => true, :uniqueness => true
 
   # Callback Method
   before_create :generate_key, :generate_secret
+
+  def logs
+    Log.where(privileged_application_id: self.id)
+  end
 
   private
     def generate_key
