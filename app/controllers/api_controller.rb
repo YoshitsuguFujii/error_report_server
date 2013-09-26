@@ -1,6 +1,7 @@
 class ApiController < ActionController::Base
   class InvalidAccess < StandardError; end
 
+  before_action :before_log
   before_action :authenticate_api!
   rescue_from Exception, with: :system_error
   # アクセスで弾く辺りはカプセル化したい
@@ -54,6 +55,10 @@ class ApiController < ActionController::Base
       if @app.secret != secret_token
         raise InvalidAccess, '不正なアクセスです'
       end
+    end
+
+    def before_log
+      logger.info("params: #{params}")
     end
   # end private
 end
