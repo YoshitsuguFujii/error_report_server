@@ -3,7 +3,7 @@ class Admin::LogsController < ApplicationController
 
   def index
     @privileged_application = PrivilegedApplication.find(params[:privileged_application_id])
-    @logs = @privileged_application.logs
+    @logs = @privileged_application.logs.desc(:created_at).page(params[:page])
   end
 
   def show

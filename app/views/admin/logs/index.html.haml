@@ -13,3 +13,6 @@
         %td= log.id
         %td= truncate(log.log_str, length: 30)
         %td=l log.created_at
+
+.pagenate_style
+  = paginate @logs
