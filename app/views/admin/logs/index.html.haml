@@ -1,6 +1,9 @@
 - model_class = Log
 .page-header
   %h1=t '.title', :default => model_class.model_name.to_s.pluralize.titleize
+
+= render "search"
+
 %table.table.table-striped
   %thead
     %tr

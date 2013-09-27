@@ -1,0 +1,27 @@
+= form_tag admin_privileged_application_logs_path(@privileged_application), class: 'form-horizontal' do |f|
+  = make_datetime_search_field(f, "登録日時", "created_at")
+
+  - if false
+    .search_row
+      キー
+      = text_field_tag "input_key"
+      値
+      = text_field_tag "input_value"
+
+  .search_btn_area
+    = submit_tag "search", class: "btn btn-primary btn-sm"
+
+
+- if false
+  = form_tag admin_privileged_application_logs_path(@privileged_application), class: 'form-horizontal' do |f|
+    %field_set
+      .form-group
+        %label.col-lg-2.control-label(for="input_key") キー
+        .col-lg-10
+          = text_field_tag :input_key, "", class: "form_control"
+        %label.col-lg-2.control-label(for="input_value") 値
+        .col-lg-10
+          = text_field_tag :input_value, "", class: "form_control"
+
+      = button_tag("search", class: "btn btn-primary")
+      %button.btn.btn-primary(type="submit")Submit</button>

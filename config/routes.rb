@@ -10,7 +10,12 @@ ErrorReportServer::Application.routes.draw do
       collection do
         get :log_top
       end
-      resources :logs, only: [:index, :show]
+
+      resources :logs, only: [:index, :show] do
+        collection do
+          post :index
+        end
+      end
     end
   end
 
