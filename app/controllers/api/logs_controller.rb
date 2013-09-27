@@ -8,20 +8,18 @@ class Api::LogsController < ApiController
 
   def create
     @logs = []
+    #logs = Log.new(log: params[:log])
+    #logger.info("****************************************************************************************************")
+    #logger.info(params[:log])
+    #logger.info("****************************************************************************************************")
+    #logs = JSON.parse(params[:log])
 
-    logs = Log.new(log: params[:log])
-    logger.info("****************************************************************************************************")
-    logger.info(params[:log])
-    logger.info("****************************************************************************************************")
-    logs = JSON.parse(params[:log])
-
-    #begin
-    #  logs = Log.new(log: params[:log])
-    #  logs = JSON.parse(params[:log])
-    #rescue JSON::ParserError => ex
-    #  #logs = JSON.parse("[ \"key1:value1\\tkey2:value2\", \"key3:value3\\tkey4:value4\" ]")
-    #  logs = params[:log]
-    #end
+    begin
+      logs = JSON.parse(params[:log])
+    rescue JSON::ParserError => ex
+      #logs = JSON.parse("[ \"key1:value1\\tkey2:value2\", \"key3:value3\\tkey4:value4\" ]")
+      logs = params[:log]
+    end
 
     Array.wrap(logs).each do |log|
       @logs << Ltsv.parse(log).merge(privileged_application_id: @app.id, created_at: Time.now, updated_at: Time.now)
