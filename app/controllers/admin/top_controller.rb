@@ -3,6 +3,6 @@ class Admin::TopController < AdminController
   layout 'application'
 
   def index
-    @logs = Log.all
+    redirect_to log_top_admin_privileged_applications_path
   end
 end
