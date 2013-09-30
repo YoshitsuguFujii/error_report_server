@@ -22,8 +22,8 @@ class Admin::LogsController < ApplicationController
     def build_search_query
       rtn_hash = {}
       clear_empty_params
-      rtn_hash.merge(build_date_query)
-      rtn_hash.merge(build_dynamic_input_query)
+      rtn_hash.update(build_date_query)
+      rtn_hash.update(build_dynamic_input_query)
     rescue => ex
       nil
     end
