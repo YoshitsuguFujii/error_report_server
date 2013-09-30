@@ -38,6 +38,7 @@ group :development do
 
   gem 'erb2haml'
   gem 'quiet_assets'
+  gem 'tapp'
 end
 
 group :development, :test do

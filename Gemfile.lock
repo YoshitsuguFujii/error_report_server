@@ -239,6 +239,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    tapp (1.4.0)
+      thor
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     therubyracer (0.12.0)
@@ -304,6 +306,7 @@ DEPENDENCIES
   seed-fu!
   simple_form
   spring
+  tapp
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)

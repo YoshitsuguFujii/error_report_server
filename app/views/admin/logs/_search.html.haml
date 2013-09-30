@@ -1,12 +1,21 @@
 = form_tag admin_privileged_application_logs_path(@privileged_application), class: 'form-horizontal' do |f|
   = make_datetime_search_field(f, "登録日時", "created_at")
 
-  - if false
-    .search_row
+  .search_row
+    - Array.wrap(params[:input_key]).each_with_index do |key, idx|
+      - next if  params[:input_key][idx].blank? && params[:input_value][idx].blank?
+
+      .search_input
+        キー
+        = text_field_tag "input_key[]", params[:input_key][idx]
+        値
+        = text_field_tag "input_value[]", params[:input_value][idx]
+
+    .search_input
       キー
-      = text_field_tag "input_key"
+      = text_field_tag "input_key[]"
       値
-      = text_field_tag "input_value"
+      = text_field_tag "input_value[]"
 
   .search_btn_area
     = submit_tag "search", class: "btn btn-primary btn-sm"
