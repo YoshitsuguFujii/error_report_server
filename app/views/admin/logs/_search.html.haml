@@ -1,36 +1,14 @@
 = form_tag admin_privileged_application_logs_path(@privileged_application), class: 'form-horizontal' do |f|
   = make_datetime_search_field(f, "登録日時", "created_at")
 
-  .search_row
+  .search_row.free_input_area
     - Array.wrap(params[:input_key]).each_with_index do |key, idx|
       - next if  params[:input_key][idx].blank? && params[:input_value][idx].blank?
 
-      .search_input
-        キー
-        = text_field_tag "input_key[]", params[:input_key][idx]
-        値
-        = text_field_tag "input_value[]", params[:input_value][idx]
+      = free_input(params[:input_key][idx], params[:input_value][idx])
+    = free_input
 
-    .search_input
-      キー
-      = text_field_tag "input_key[]"
-      値
-      = text_field_tag "input_value[]"
 
   .search_btn_area
-    = submit_tag "search", class: "btn btn-primary btn-sm"
-
-
-- if false
-  = form_tag admin_privileged_application_logs_path(@privileged_application), class: 'form-horizontal' do |f|
-    %field_set
-      .form-group
-        %label.col-lg-2.control-label(for="input_key") キー
-        .col-lg-10
-          = text_field_tag :input_key, "", class: "form_control"
-        %label.col-lg-2.control-label(for="input_value") 値
-        .col-lg-10
-          = text_field_tag :input_value, "", class: "form_control"
-
-      = button_tag("search", class: "btn btn-primary")
-      %button.btn.btn-primary(type="submit")Submit</button>
+    = link_to "追加","javascript:void(0);", onclick: "add_input('#{add_input_admin_privileged_application_logs_path(@privileged_application)}');return false" , class: "btn btn-success add_input btn-small"
+    = submit_tag "search", class: "btn btn-primary btn-small"

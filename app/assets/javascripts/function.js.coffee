@@ -44,3 +44,27 @@
   date = new Date()
   last_date = computeMonth(date.getFullYear(),(date.getMonth() + 1),date.getDate(), -1)
   last_date
+
+
+##
+# 自分を含むdiv.deletable_input_areaを削除
+#
+@delete_input_area =(self) ->
+  #$(self).parent('.deletable_input_area').slideUp(200, -> $(@).remove())
+  $(self).parents('.deletable_input_area').remove()
+
+##
+# input入力欄を増やす
+#
+@add_input =(url) ->
+  $.ajax
+    url: url
+    type: "GET"
+    #data: "page=" + cnt + "&authenticity_token=" + $("#add_count").val()
+    success: (rtn) ->
+      $('.free_input_area').append(rtn)
+
+    error: (XMLHttpRequest, textStatus, errorThrown) ->
+      console.log("XMLHttpRequest : " + XMLHttpRequest.status)
+      console.log("textStatus : " + textStatus)
+      console.log("errorThrown : " + errorThrown.message)

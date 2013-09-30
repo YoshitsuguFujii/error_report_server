@@ -13,6 +13,7 @@ ErrorReportServer::Application.routes.draw do
 
       resources :logs, only: [:index, :show] do
         collection do
+          get :add_input
           post :index
         end
       end

@@ -9,6 +9,10 @@ class Admin::LogsController < ApplicationController
   def show
   end
 
+  def add_input
+    render text: ApplicationController.helpers.free_input
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_log

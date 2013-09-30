@@ -29,7 +29,6 @@ $ ->
     $(@).parent().children().each ->
       @.selectedIndex  = 0
 
-
   # 開始と終了を配列で返す
   start_end_date_array =(start_date,end_date) ->
     thisyear  = start_date.getFullYear()
