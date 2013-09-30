@@ -3,7 +3,6 @@ class Admin::LogsController < ApplicationController
 
   def index
     @privileged_application = PrivilegedApplication.find(params[:privileged_application_id])
-    binding.pry
     @logs = @privileged_application.logs.where(build_search_query).desc(:created_at).page(params[:page])
   end
 
