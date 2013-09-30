@@ -5,7 +5,7 @@ module ApplicationHelper
   def make_search_date_field(f, target)
     html = ""
     html << if f.nil?
-              select_date(instance_variable_get("@#{target.to_s}") || Date.today, {include_blank: true, prefix: target, use_month_numbers: true}, { class: 'input-small search-query'})
+              select_date(instance_variable_get("@#{target.to_s}"), {include_blank: true, prefix: target, use_month_numbers: true}, { class: 'input-small search-query'})
             else
               f.input_field(target.to_sym, :as => :date, :required => false, :use_month_numbers => true, :include_blank => true, :date_separator => "/ ", :label => false, :input_html => { :class => 'input-medium search-query' })
             end
